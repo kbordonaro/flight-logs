@@ -9,11 +9,10 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "virtserver.swaggerhub.com"
-basePath: "/savvycreations/FlightLogs/1.0.0"
 schemes:
 - "https"
 paths:
-  /logs:
+  /api/logs:
     post:
       summary: "Add Log Records"
       description: "Add a list of log records"
@@ -50,11 +49,9 @@ definitions:
     properties:
       drone:
         type: "integer"
-        format: "int64"
         example: 1021
       generation:
         type: "integer"
-        format: "int32"
         example: 10
       startDate:
         type: "string"

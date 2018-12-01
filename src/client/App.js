@@ -72,6 +72,7 @@ export default class App extends Component {
     const file = event.target.files[0];
     Papa.parse(file, {
       header: true,
+      dynamicTyping: true,
       skipEmptyLines: true,
       complete: (results) => {
         postLogs(

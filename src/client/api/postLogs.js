@@ -1,7 +1,7 @@
 export default (data, onSuccess, onError) => {
   fetch('/api/logs', {
     method: 'POST',
-    body: JSON.stringify({data}),
+    body: JSON.stringify(data),
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
