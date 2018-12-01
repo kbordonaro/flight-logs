@@ -7,6 +7,14 @@ body {
   width: 100%;
 }
 
+.ui.error.message {
+  margin-bottom: 0;
+}
+
+.ui.message {
+  margin-bottom: 0;
+}
+
 .content-container {
   margin-top: 0 !important;
   flex-grow: 1;
@@ -25,4 +33,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.wait {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  cursor: wait;
 }

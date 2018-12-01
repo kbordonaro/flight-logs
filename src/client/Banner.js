@@ -29,8 +29,8 @@ const Banner = ({
         </span>
       </div>
       <div
-        onClick={isFileLoading ? undefined : onToggleSearch}
-        className={'link' + (!isFileLoading && isSearchOpen ? ' selected' : '')}
+        onClick={onToggleSearch}
+        className={'link' + (isSearchOpen ? ' selected' : '')}
       >
         <span>
           <Icon name='search' /> Find Records

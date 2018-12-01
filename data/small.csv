@@ -1,0 +1,11 @@
+drone,generation,startDate,endDate,latitude,longitude,imagePath
+124,2,2018-11-28T17:05:22.173Z,2018-11-29T17:05:22.173Z,42.556,47.207,https://s3.amazonaws.com/bucket/path/34f5429c-19eb-3a01-18c4-e0e296bd13e0.png
+184,7,2018-11-28T17:05:22.174Z,2018-11-29T17:05:22.174Z,50.422,58.427,https://s3.amazonaws.com/bucket/path/1806bf9d-40b1-b237-39c9-70e148faac2c.png
+752,8,2018-11-24T17:05:22.174Z,2018-11-25T17:05:22.174Z,57.071,53.540,https://s3.amazonaws.com/bucket/path/06c63192-cb66-9fa0-cba8-e3a47e8d3248.png
+635,0,2018-11-29T17:05:22.174Z,2018-11-30T17:05:22.174Z,56.353,43.986,https://s3.amazonaws.com/bucket/path/19d94d05-5488-048c-2c9e-0bcc3ff3c70f.png
+948,5,2018-11-24T17:05:22.174Z,2018-11-25T17:05:22.174Z,49.124,38.345,https://s3.amazonaws.com/bucket/path/b4bfb0f5-8f19-8419-e31f-8cec7036ddad.png
+981,7,2018-11-24T17:05:22.174Z,2018-11-25T17:05:22.174Z,38.236,51.208,https://s3.amazonaws.com/bucket/path/cc4a97a6-c472-4246-f1f8-3aefe3b2cbd3.png
+720,8,2018-11-24T17:05:22.174Z,2018-11-25T17:05:22.174Z,30.915,53.801,https://s3.amazonaws.com/bucket/path/0c062461-13c1-08eb-26e8-210a5704a9bd.png
+405,5,2018-11-22T17:05:22.174Z,2018-11-23T17:05:22.174Z,30.086,30.588,https://s3.amazonaws.com/bucket/path/f14389a0-fcc8-4cf3-2994-b9cbf6f8b85e.png
+793,9,2018-11-25T17:05:22.174Z,2018-11-26T17:05:22.174Z,31.422,53.128,https://s3.amazonaws.com/bucket/path/4acaab29-c983-2e6d-8a57-d70431b14025.png
+599,2,2018-11-26T17:05:22.174Z,2018-11-27T17:05:22.174Z,52.674,40.472,https://s3.amazonaws.com/bucket/path/0c610773-e30d-051e-e380-554deffc2ae2.png

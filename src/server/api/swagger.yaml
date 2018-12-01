@@ -1,0 +1,76 @@
+swagger: "2.0"
+info:
+  description: "API for the managing flight logs"
+  version: "1.0.0"
+  title: "Flight Log API"
+  contact:
+    email: "keith@savvycreationsdesign.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "virtserver.swaggerhub.com"
+basePath: "/savvycreations/FlightLogs/1.0.0"
+schemes:
+- "https"
+paths:
+  /logs:
+    post:
+      summary: "Add Log Records"
+      description: "Add a list of log records"
+      operationId: "addRecords"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "records"
+        description: "Records to add"
+        required: false
+        schema:
+          type: "array"
+          items:
+            $ref: "#/definitions/RecordData"
+      responses:
+        204:
+          description: "Records successufully added"
+        400:
+          description: "Invalid records"
+definitions:
+  RecordData:
+    type: "object"
+    required:
+    - "drone"
+    - "endDate"
+    - "generation"
+    - "imagePath"
+    - "latitude"
+    - "longitude"
+    - "startDate"
+    properties:
+      drone:
+        type: "integer"
+        format: "int64"
+        example: 1021
+      generation:
+        type: "integer"
+        format: "int32"
+        example: 10
+      startDate:
+        type: "string"
+        format: "date-time"
+        example: "2016-08-29T09:12:33.001Z"
+      endDate:
+        type: "string"
+        format: "date-time"
+        example: "2016-08-29T09:12:33.001Z"
+      latitude:
+        type: "number"
+        example: 30.02
+      longitude:
+        type: "number"
+        example: 40.789
+      imagePath:
+        type: "string"
+        format: "uri"
+        example: "https://s3.amazonaws.com/bucket/path/image.png"
