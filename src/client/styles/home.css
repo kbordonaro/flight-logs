@@ -1,0 +1,10 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive {
+  width: 80%;
+  height: auto;
+}

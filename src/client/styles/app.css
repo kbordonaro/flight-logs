@@ -1,0 +1,28 @@
+h1 {
+  color: green;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.content-container {
+  margin-top: 0 !important;
+  flex-grow: 1;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+}
+
+.page-container {
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

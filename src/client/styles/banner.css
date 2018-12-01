@@ -1,0 +1,36 @@
+.banner {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-content: center;
+}
+
+.title {
+  margin: 0.5em !important;
+}
+
+.icon-bar {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.link {
+  text-align: center;
+  width: 150px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.link:hover {
+  background: #1b1c1d;
+}
+
+.selected {
+  background: #1b1c1d;
+}

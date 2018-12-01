@@ -24,7 +24,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=100000'
       }
     ]
@@ -33,7 +33,20 @@ module.exports = {
     port: 3000,
     open: true,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api': 'http://localhost:8080',
+      '/**': {
+        target: '/index.html',
+        secure: false,
+        bypass: function(req, res, opt){
+          if(req.path.indexOf('/img/') !== -1 || req.path.indexOf('/public/') !== -1){
+            return '/'
+          }
+  
+          if (req.headers.accept.indexOf('html') !== -1) {
+            return '/index.html';
+          }
+        }
+      }
     }
   },
   plugins: [
