@@ -1,0 +1,11 @@
+.query {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.search-bar {
+  margin: 0 !important;
+  justify-content: center;
+}

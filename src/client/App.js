@@ -78,11 +78,11 @@ export default class App extends Component {
         postLogs(
           results.data,
           this.onReadSuccess.bind(this),
-          this.onReadError.bind(this),
+          this.onError.bind(this),
         );
       },
       error: () => {
-        this.onReadError('Could not parse the CSV file');
+        this.onError('Could not parse the CSV file');
       }
     });
   }
@@ -96,7 +96,7 @@ export default class App extends Component {
     }, this.clearMessage);
   }
 
-  onReadError(error) {
+  onError(error) {
     this.setState({
       message: {
         text: error,
@@ -128,7 +128,9 @@ export default class App extends Component {
       <Router history={history}>
         <div className='page'>
           <If condition={isFileLoading}>
-            <div className='wait'></div>
+            <div className='wait' onClick={() => {
+              this.setState({isFileLoading: false});
+            }}></div>
           </If>
           <If condition={message}>
             <Message error={message.error} info={!message.error}>
@@ -152,7 +154,10 @@ export default class App extends Component {
             <SearchBar animation={'overlay'} direction={'right'} visible={isSearchOpen} />
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route path="/generation" component={Generation}/>
+              <Route
+                path="/generation"
+                component={() => <Generation onError={this.onError} />}
+              />
               <Route path="/date" component={DateRange}/>
               <Route path="/duration" component={Duration}/>
               <Route path="/area" component={Area}/>

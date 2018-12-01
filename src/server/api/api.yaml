@@ -1,73 +1,97 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "API for the managing flight logs"
-  version: "1.0.0"
-  title: "Flight Log API"
+  description: API for the managing flight logs
+  version: 1.0.0
+  title: Flight Log API
   contact:
-    email: "keith@savvycreationsdesign.com"
+    email: keith@savvycreationsdesign.com
   license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "virtserver.swaggerhub.com"
-schemes:
-- "https"
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
 paths:
   /api/logs:
     post:
-      summary: "Add Log Records"
-      description: "Add a list of log records"
-      operationId: "addRecords"
+      summary: Add Log Records
+      description: Add a list of log records
       consumes:
-      - "application/json"
+      - application/json
       produces:
-      - "application/json"
+      - application/json
       parameters:
-      - in: "body"
-        name: "records"
-        description: "Records to add"
-        required: false
+      - in: body
+        name: records
+        description: Records to add
         schema:
-          type: "array"
-          items:
-            $ref: "#/definitions/RecordData"
+          $ref: '#/definitions/Records'
       responses:
         204:
-          description: "Records successufully added"
+          description: Records successufully added
         400:
-          description: "Invalid records"
+          description: Invalid records
+  /api/generations:
+    get:
+      summary: Get Generations
+      description: Get the list available generations
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Records successufully added
+          schema:
+            type: array
+            items:
+              type: integer
+  /api/find/generation:
+    get:
+      summary: Find Generation Records
+      description: Find the records for a drone generation
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: generation
+        required: true
+        type: integer
+      responses:
+        200:
+          description: Records successufully found
+          schema:
+            $ref: '#/definitions/Records'
 definitions:
-  RecordData:
-    type: "object"
-    required:
-    - "drone"
-    - "endDate"
-    - "generation"
-    - "imagePath"
-    - "latitude"
-    - "longitude"
-    - "startDate"
-    properties:
-      drone:
-        type: "integer"
-        example: 1021
-      generation:
-        type: "integer"
-        example: 10
-      startDate:
-        type: "string"
-        format: "date-time"
-        example: "2016-08-29T09:12:33.001Z"
-      endDate:
-        type: "string"
-        format: "date-time"
-        example: "2016-08-29T09:12:33.001Z"
-      latitude:
-        type: "number"
-        example: 30.02
-      longitude:
-        type: "number"
-        example: 40.789
-      imagePath:
-        type: "string"
-        format: "uri"
-        example: "https://s3.amazonaws.com/bucket/path/image.png"
+  Records:
+    type: 'array'
+    items:
+      type: object
+      required:
+      - drone
+      - generation
+      - startDate
+      - endDate
+      - latitude
+      - longitude
+      - imagePath
+      properties:
+        drone:
+          type: integer
+          example: 1021
+        generation:
+          type: integer
+          example: 10
+        startDate:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+        endDate:
+          type: string
+          format: date-time
+          example: 2016-08-29T09:12:33.001Z
+        latitude:
+          type: number
+          example: 30.02
+        longitude:
+          type: number
+          example: 40.789
+        imagePath:
+          type: string
+          format: uri
+          example: https://s3.amazonaws.com/bucket/path/image.png

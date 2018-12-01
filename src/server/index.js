@@ -6,6 +6,8 @@ const logger = require('morgan');
 const validator = require('express-ajv-swagger-validation');
 
 const postLogs = require('./api/postLogs');
+const getGenerations = require('./api/getGenerations');
+const findGeneration = require('./api/findGeneration');
 
 // URL to the database
 const dbRoute = 'mongodb+srv://dbadmin:GHQzRClBsvIEglUx@kabordonaro-cc9jp.gcp.mongodb.net/shield?retryWrites=true';
@@ -35,21 +37,24 @@ validator.init(path.join(__dirname, 'api/api.yaml')).then(() => {
     app.use(bodyParser.json());
     app.use(logger('dev'));
     
-    // Handle errors
-    app.use(function (err, req, res, next) {
-        if (err instanceof validator.InputValidationError) {
-            res.status(400).json({ more_info: JSON.stringify(err.errors) });
-        }
-    });
-
     //
     // Define the API
     //
     router.post('/logs', validator.validate, postLogs);
-    
+    router.get('/generations', validator.validate, getGenerations);
+    router.get('/find/generation', validator.validate, findGeneration);
+
     // append /api for our http requests
     app.use('/api', router);
     
+    // Handle errors
+    app.use(function (err, req, res, next) {
+        if (err instanceof validator.InputValidationError) {
+            console.error(err.errors);
+            res.status(400).json({ more_info: JSON.stringify(err.errors) });
+        }
+    });
+
     // Attach the api to the port
     app.listen(8080, () => console.log('Listening on port 8080!'));    
 });
