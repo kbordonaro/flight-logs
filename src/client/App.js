@@ -171,17 +171,20 @@ export default class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route
                 path="/generation"
-                component={() => <Generation onError={this.onError} />}
+                component={() => <Generation onError={this.onError.bind(this)} />}
               />
               <Route
                 path="/date"
-                component={() => <DateRange onError={this.onError} />}
+                component={() => <DateRange onError={this.onError.bind(this)} />}
               />
               <Route
                 path="/duration"
-                component={() => <Duration onError={this.onError} />}
+                component={() => <Duration onError={this.onError.bind(this)} />}
               />
-              <Route path="/area" component={Area}/>
+              <Route
+                path="/area"
+                component={() => <Area onError={this.onError.bind(this)} />}
+              />
               <Route component={NotFound}/>
             </Switch>
           </Sidebar.Pushable>
