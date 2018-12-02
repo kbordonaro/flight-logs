@@ -8,8 +8,7 @@ const DataSchema = new Schema(
     generation: Number,
     startDate: Date,
     endDate: Date,
-    latitude: Number,
-    longitude: Number,
+    location: [Number, Number],
     imagePath: String,
     duration: Number,
   },{

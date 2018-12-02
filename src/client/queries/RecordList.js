@@ -59,7 +59,7 @@ class RecordList extends Component {
                     <Label>
                     <Icon name='globe' />
                       {
-                        formatcoords([record.latitude, record.longitude]).format({
+                        formatcoords(record.location).format({
                           latLonSeparator: ', ', 
                           decimalPlaces: 0,
                         })
@@ -97,7 +97,7 @@ class RecordList extends Component {
                     <Label>
                       <Icon name='globe' />
                       {
-                        formatcoords([record.latitude, record.longitude]).format({
+                        formatcoords(record.location).format({
                           latLonSeparator: ', ', 
                         })
                       }

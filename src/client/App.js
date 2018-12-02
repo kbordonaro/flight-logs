@@ -75,8 +75,23 @@ export default class App extends Component {
       dynamicTyping: true,
       skipEmptyLines: true,
       complete: (results) => {
+        // Map the results from the csv parse to the form
+        // required by the API.  Replace the latitude, longitude
+        // values with a location array.
+        const data = results.data.map(record => {
+          const result = {
+            ...record,
+            location: [record.latitude, record.longitude]
+          }
+
+          delete result.latitude;
+          delete result.longitude;
+
+          return result;
+        });
+
         postLogs(
-          results.data,
+          data,
           this.onReadSuccess.bind(this),
           this.onError.bind(this),
         );

@@ -10,6 +10,7 @@ const getGenerations = require('./api/getGenerations');
 const findGeneration = require('./api/findGeneration');
 const findDateRange = require('./api/findDateRange');
 const findDuration = require('./api/findDuration');
+const findArea = require('./api/findArea');
 
 // URL to the database
 const dbRoute = 'mongodb+srv://dbadmin:GHQzRClBsvIEglUx@kabordonaro-cc9jp.gcp.mongodb.net/shield?retryWrites=true';
@@ -47,6 +48,7 @@ validator.init(path.join(__dirname, 'api/api.yaml')).then(() => {
     router.get('/find/generation', validator.validate, findGeneration);
     router.get('/find/dates', validator.validate, findDateRange);
     router.get('/find/duration', validator.validate, findDuration);
+    router.get('/find/area', validator.validate, findArea);
 
     // append /api for our http requests
     app.use('/api', router);
