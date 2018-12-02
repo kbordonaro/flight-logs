@@ -35,13 +35,15 @@ const addMinutes = (date, minutes) => {
 };
 
 const randomEndDate = (startDate) => {
-  const randomMinutes = (Math.random() * 29) + 1;
+  const randomMinutes = Math.ceil(Math.random() * 30);
   return addMinutes(startDate, randomMinutes);
 };
 
 // Random generator for Lat/Lon
-const randomCoordinate = () => {
-  return ((Math.random() * 30) + 30).toFixed(3);
+const randomCoordinate = (max) => {
+  const randomNeg = Math.floor((Math.random() * 2)) || -1;
+
+  return randomNeg * (Math.random() * max).toFixed(5);
 }
 
 // Generate a UUID
@@ -76,11 +78,11 @@ for(let i=0; i<args[1]; i++) {
   content += ',';
 
   // Latitude
-  content += randomCoordinate();
+  content += randomCoordinate(90);
   content += ',';
 
   // Longitude
-  content += randomCoordinate();
+  content += randomCoordinate(180);
   content += ',';
 
   // Image Path
