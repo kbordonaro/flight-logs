@@ -28,7 +28,7 @@ class RecordList extends Component {
     return (
       <Choose>
         <When condition={ records && records.length > 0 }>
-          <Accordion styled fluid>
+          <Accordion styled fluid className='record-list'>
             <For each='record' index='idx' of={ records }>
               <Accordion.Title
                 key={'record' + idx}
@@ -38,35 +38,77 @@ class RecordList extends Component {
               >
                 <Icon name='dropdown' />
                 Drone {record.drone}
+                <If condition={activeIndex !== idx}>
+                  <Segment>
+                    <Label>
+                      <Icon name='code branch' />
+                      {record.generation}
+                    </Label>
+                    <Label>
+                      <Icon name='calendar' />
+                      {
+                        (new Date(record.startDate).getMonth()+1) + '/' +
+                        (new Date(record.startDate).getDate()+1) + '/' +
+                        (new Date(record.startDate).getFullYear())
+                      }
+                    </Label>
+                    <Label>
+                      <Icon name='clock' />
+                      {Math.ceil(record.duration/60000)} Min
+                    </Label>
+                    <Label>
+                    <Icon name='globe' />
+                      {
+                        formatcoords([record.latitude, record.longitude]).format({
+                          latLonSeparator: ', ', 
+                          decimalPlaces: 0,
+                        })
+                      }
+                    </Label>
+                    <Label>
+                      <a href={record.imagePath} target='map'><Icon name='image' /></a>
+                    </Label>
+                  </Segment>
+                </If>
               </Accordion.Title>
               <Accordion.Content active={activeIndex === idx}>
-                <Segment vertical>
-                  <Label>
-                    <Icon name='code branch' />
-                    {record.generation}
-                  </Label>
-                </Segment>
-                <Segment vertical>
-                  <Label>
-                    <Icon name='calendar' />
-                    {(new Date(record.startDate)).toUTCString()}
-                  </Label>
-                  <Label>
-                    <Icon name='calendar' />
-                    {(new Date(record.endDate)).toUTCString()}
-                  </Label>
-                </Segment>
-                <Segment vertical>
-                  <Label>
-                    <Icon name='globe' />
-                    {formatcoords([record.latitude, record.longitude]).format()}
-                  </Label>
-                </Segment>
-                <Segment vertical>
-                  <Label>
-                    <Icon name='image' />
-                    <a href={record.imagePath}>{record.imagePath}</a>
-                  </Label>
+              <Segment>
+                  <Segment vertical>
+                    <Label>
+                      <Icon name='code branch' />
+                      {record.generation}
+                    </Label>
+                  </Segment>
+                  <Segment vertical>
+                    <Label>
+                      <Icon name='calendar' />
+                      {(new Date(record.startDate)).toUTCString()}
+                    </Label>
+                    <Label>
+                      <Icon name='calendar' />
+                      {(new Date(record.endDate)).toUTCString()}
+                    </Label>
+                    <Label>
+                      <Icon name='clock' />
+                      {Math.ceil(record.duration/60000)} Min
+                    </Label>
+                  </Segment>
+                  <Segment vertical>
+                    <Label>
+                      <Icon name='globe' />
+                      {
+                        formatcoords([record.latitude, record.longitude]).format({
+                          latLonSeparator: ', ', 
+                        })
+                      }
+                    </Label>
+                  </Segment>
+                  <Segment vertical>
+                    <Label>
+                      <Icon name='image' />
+                      <a href={record.imagePath} target='map'>{record.imagePath}</a>
+                    </Label>
+                  </Segment>
                 </Segment>
               </Accordion.Content>
             </For>

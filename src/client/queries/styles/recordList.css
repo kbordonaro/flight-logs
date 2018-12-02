@@ -1,2 +1,7 @@
-.record-list {
+.record-list .ui.segment {
+  padding-bottom: 0 !important;
+}
+
+.record-list .ui.label {
+  margin-bottom: 1em !important;
 }
