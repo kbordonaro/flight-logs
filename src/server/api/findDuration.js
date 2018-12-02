@@ -2,17 +2,12 @@ const LogModel = require('./LogModel');
 
 // Post the API Handler.
 module.exports = (req, res) => {
-  const filter = {};
-  if(req.query.startDate) {
-    filter.startDate = {
-      '$gte': req.query.startDate,
+  // Convert the duration in minutes to milliseconds.
+  const filter = {
+    duration: {
+      '$lte': (req.query.duration * 60000),
     }
-  }
-  if(req.query.endDate) {
-    filter.endDate = {
-      '$lte': req.query.endDate,
-    }
-  }
+  };
 
   LogModel.find(filter, (error, values) => {
     if(error) {

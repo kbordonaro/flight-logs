@@ -162,7 +162,10 @@ export default class App extends Component {
                 path="/date"
                 component={() => <DateRange onError={this.onError} />}
               />
-              <Route path="/duration" component={Duration}/>
+              <Route
+                path="/duration"
+                component={() => <Duration onError={this.onError} />}
+              />
               <Route path="/area" component={Area}/>
               <Route component={NotFound}/>
             </Switch>

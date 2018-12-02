@@ -77,6 +77,22 @@ paths:
           description: Records successufully found
           schema:
             $ref: '#/definitions/Records'
+  /api/find/duration:
+    get:
+      summary: Find Duration Records
+      description: Find the records for flights within a given duration
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: duration
+        required: true
+        type: integer
+      responses:
+        200:
+          description: Records successufully found
+          schema:
+            $ref: '#/definitions/Records'
 definitions:
   Records:
     type: 'array'

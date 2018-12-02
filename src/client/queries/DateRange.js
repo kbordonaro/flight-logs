@@ -94,15 +94,15 @@ class DateRange extends Component {
                   endDate={endDate}
                   onChange={this.onStartChange.bind(this)}
                   maxDate={new Date()}
-              />
-              <DatePicker
-                  selected={endDate}
-                  selectsEnd
-                  startDate={startDate}
-                  endDate={endDate}
-                  onChange={this.onEndChange.bind(this)}
-                  maxDate={new Date()}
-              />
+                />
+                <DatePicker
+                    selected={endDate}
+                    selectsEnd
+                    startDate={startDate}
+                    endDate={endDate}
+                    onChange={this.onEndChange.bind(this)}
+                    maxDate={new Date()}
+                />
               </Form.Field>
               <Button
                 primary

@@ -11,6 +11,7 @@ const DataSchema = new Schema(
     latitude: Number,
     longitude: Number,
     imagePath: String,
+    duration: Number,
   },{
     timestamps: true,
   }
