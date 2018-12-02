@@ -10,6 +10,7 @@ class Home extends Component {
   render() {
     return (
       <div className='content home'>
+        <h1>Flight Log</h1>
         <img src={homeImg} className='responsive' />
       </div>
     );
