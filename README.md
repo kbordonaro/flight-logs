@@ -11,11 +11,14 @@ After the dependencies are installed, you can run Fight Log in two modes; develo
 ```
 > npm run dev
 ```
+`http://localhost:3000/` should automatically open in your default browser.
 
 ### Production
 ```
 > npm start
 ```
+Open `http://localhost:8080/` in your browser.
+
 ---
 
 ## Data Generation
