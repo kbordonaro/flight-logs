@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import {
   Icon,
   Header,
+  Image,
 } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
+
+import logo from './resources/logo.png';
 import './styles/banner.css';
 
 const Banner = ({
@@ -16,7 +19,7 @@ const Banner = ({
   <div className='banner'>
     <Link to='/'>
       <Header inverted as='h3' className='title'>
-        <Icon name='warehouse' />
+        <Image src={logo} />
         <Header.Content>Flight Log</Header.Content>
       </Header>
     </Link>
