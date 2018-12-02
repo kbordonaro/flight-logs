@@ -28,6 +28,17 @@ const randomStartDate = () => {
   return addDays(new Date(), -1 * randomDays);
 };
 
+const addMinutes = (date, minutes) => {
+  let result = new Date(date);
+  result.setTime(result.getTime() + (minutes*60*1000));
+  return result;
+};
+
+const randomEndDate = (startDate) => {
+  const randomMinutes = (Math.random() * 29) + 1;
+  return addMinutes(startDate, randomMinutes);
+};
+
 // Random generator for Lat/Lon
 const randomCoordinate = () => {
   return ((Math.random() * 30) + 30).toFixed(3);
@@ -61,7 +72,7 @@ for(let i=0; i<args[1]; i++) {
   content += ',';
 
   // End date
-  content += addDays(startDate, 1).toISOString();
+  content += randomEndDate(startDate).toISOString();
   content += ',';
 
   // Latitude
@@ -73,7 +84,7 @@ for(let i=0; i<args[1]; i++) {
   content += ',';
 
   // Image Path
-  content += 'https://s3.amazonaws.com/bucket/path/' + uuid() + '.png';
+  content += 'https://s3.amazonaws.com/bucket/path/' + uuid() + '.jpg';
   content += '\n';
 }
 

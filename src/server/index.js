@@ -8,6 +8,7 @@ const validator = require('express-ajv-swagger-validation');
 const postLogs = require('./api/postLogs');
 const getGenerations = require('./api/getGenerations');
 const findGeneration = require('./api/findGeneration');
+const findDateRange = require('./api/findDateRange');
 
 // URL to the database
 const dbRoute = 'mongodb+srv://dbadmin:GHQzRClBsvIEglUx@kabordonaro-cc9jp.gcp.mongodb.net/shield?retryWrites=true';
@@ -43,6 +44,7 @@ validator.init(path.join(__dirname, 'api/api.yaml')).then(() => {
     router.post('/logs', validator.validate, postLogs);
     router.get('/generations', validator.validate, getGenerations);
     router.get('/find/generation', validator.validate, findGeneration);
+    router.get('/find/dates', validator.validate, findDateRange);
 
     // append /api for our http requests
     app.use('/api', router);

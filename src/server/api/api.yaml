@@ -57,6 +57,26 @@ paths:
           description: Records successufully found
           schema:
             $ref: '#/definitions/Records'
+  /api/find/dates:
+    get:
+      summary: Find Date Range
+      description: Find the records in a date range
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: startDate
+        type: string
+        format: date-time
+      - in: query
+        name: endDate
+        type: string
+        format: date-time
+      responses:
+        200:
+          description: Records successufully found
+          schema:
+            $ref: '#/definitions/Records'
 definitions:
   Records:
     type: 'array'

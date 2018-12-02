@@ -8,6 +8,7 @@ import {
   Icon,
 } from 'semantic-ui-react';
 
+import RecordList from './RecordList';
 import getGenerations from '../api/getGenerations';
 import find from '../api/find';
 
@@ -51,8 +52,11 @@ class Generation extends Component {
     });
   }
 
-  onSearchResults(values) {
-    console.log(values);
+  onSearchResults(records) {
+    this.setState({
+      records,
+      loading: false,
+    });
   }
 
   componentDidMount() {
@@ -64,7 +68,12 @@ class Generation extends Component {
   }
 
   render() {
-    const { generations, value, loading} = this.state;
+    const {
+      generations,
+      value,
+      loading,
+      records,
+    } = this.state;
 
     return (
       <div className='query'>
@@ -89,6 +98,9 @@ class Generation extends Component {
             </Form.Group>
           </Segment>
         </Form>
+        <If condition={records}>
+          <RecordList records={records} />
+        </If>
       </div>
     );
   }
