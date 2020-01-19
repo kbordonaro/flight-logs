@@ -13,7 +13,7 @@ const findDuration = require('./api/findDuration');
 const findArea = require('./api/findArea');
 
 // URL to the database
-const dbRoute = 'mongodb+srv://dbadmin:@kabordonaro-cc9jp.gcp.mongodb.net/shield?retryWrites=true';
+const dbRoute = 'mongodb+srv://dbadmin:GHQzRClBsvIEglUx@kabordonaro-cc9jp.gcp.mongodb.net/shield?retryWrites=true';
 
 // Connect to the database
 mongoose.connect(
